@@ -13,7 +13,9 @@ RUN apt-get -y update
 RUN apt-get -y install openjdk-7-jre-headless wget unzip
 
 # Download Minecraft Server components
-RUN wget -q https://s3.amazonaws.com/Minecraft.Download/versions/1.9/minecraft_server.1.9.jar
+RUN wget -q https://s3.amazonaws.com/Minecraft.Download/versions/1.9/minecraft_server.1.9.jar -O ~/
+
+
 RUN wget -q https://github.com/madtune/minercraft/raw/master/etc.zip
 RUN unzip etc.zip -d /usr/local/
 RUN rm etc.zip 
@@ -21,15 +23,15 @@ RUN rm etc.zip
 RUN mkdir ~/McMyAdmin
 RUN cd ~/McMyAdmin
 RUN wget -q https://github.com/madtune/minercraft/raw/master/MCMA2_glibc26_2.zip
-RUN unzip MCMA2_glibc26_2.zip -d /root/McMyAdmin/
+RUN unzip MCMA2_glibc26_2.zip -d ~/McMyAdmin/
 RUN rm MCMA2_glibc26_2.zip
-RUN ./root/McMyAdmin/MCMA2_Linux_x86_64 -setpass admin -configonly 
+#RUN ~/McMyAdmin/MCMA2_Linux_x86_64 -setpass admin -configonly 
 #RUN ./root/McMyAdmin/MCMA2_Linux_x86_64
 
 # Sets working directory for the CMD instruction (also works for RUN, ENTRYPOINT commands)
 # Create mount point, and mark it as holding externally mounted volume
 
-WORKDIR /data
+
 VOLUME /data
 
 # Expose the container's network port: 25565 during runtime.
@@ -37,4 +39,4 @@ EXPOSE 25565
 EXPOSE 80
 
 #Automatically accept Minecraft EULA, and start Minecraft server
-CMD echo eula=true > /data/eula.txt && java -jar /minecraft_server.1.9.jar
+#CMD echo eula=true > /data/eula.txt && java -jar /minecraft_server.1.9.jar
