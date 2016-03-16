@@ -13,7 +13,7 @@ RUN apt-get -y update
 RUN apt-get -y install openjdk-7-jre-headless wget unzip
 
 # Download Minecraft Server components
-RUN wget -q https://s3.amazonaws.com/Minecraft.Download/versions/1.9/minecraft_server.1.9.jar -O ~/
+RUN wget -q https://s3.amazonaws.com/Minecraft.Download/versions/1.9/minecraft_server.1.9.jar -O ~/minecraft_server.1.9.jar
 
 
 RUN wget -q https://github.com/madtune/minercraft/raw/master/etc.zip
