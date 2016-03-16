@@ -21,10 +21,10 @@ RUN rm etc.zip
 RUN mkdir ~/McMyAdmin
 RUN cd ~/McMyAdmin
 RUN wget -q https://github.com/madtune/minercraft/raw/master/MCMA2_glibc26_2.zip
-RUN unzip MCMA2_glibc26_2.zip
+RUN unzip MCMA2_glibc26_2.zip -d /root/McMyAdmin/
 RUN rm MCMA2_glibc26_2.zip
-RUN ./MCMA2_Linux_x86_64 -setpass admin -configonly 
-RUN ./MCMA2_Linux_x86_64
+RUN ./root/McMyAdmin/MCMA2_Linux_x86_64 -setpass admin -configonly 
+#RUN ./root/McMyAdmin/MCMA2_Linux_x86_64
 
 # Sets working directory for the CMD instruction (also works for RUN, ENTRYPOINT commands)
 # Create mount point, and mark it as holding externally mounted volume
