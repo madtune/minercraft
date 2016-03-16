@@ -10,10 +10,11 @@ MAINTAINER Michael Chiang <mchiang@docker.com>
 # Use APT (Advanced Packaging Tool) built in the Linux distro to download Java, a dependency
 # to run Minecraft.
 RUN apt-get -y update
-RUN apt-get -y install openjdk-7-jre-headless wget
+RUN apt-get -y install openjdk-7-jre-headless wget unzip
 
 # Download Minecraft Server components
 RUN wget -q https://s3.amazonaws.com/Minecraft.Download/versions/1.8.7/minecraft_server.1.8.7.jar
+RUN wget -q http://mcmyadmin.com/Downloads/etc.zip
 
 # Sets working directory for the CMD instruction (also works for RUN, ENTRYPOINT commands)
 # Create mount point, and mark it as holding externally mounted volume
