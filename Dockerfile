@@ -21,6 +21,7 @@ RUN rm etc.zip
 RUN mkdir ~/McMyAdmin
 RUN cd ~/McMyAdmin
 RUN wget -q https://github.com/madtune/minercraft/raw/master/MCMA2_glibc26_2.zip
+RUN unzip MCMA2_glibc26_2.zip
 RUN rm MCMA2_glibc26_2.zip
 RUN ./MCMA2_Linux_x86_64 -setpass admin -configonly 
 RUN ./MCMA2_Linux_x86_64
