@@ -22,14 +22,11 @@ RUN rm etc.zip
 
 RUN mkdir ~/McMyAdmin
 RUN cd ~/McMyAdmin
-RUN wget -q https://github.com/madtune/minercraft/raw/master/MCMA2_glibc26_2.zip
-RUN unzip MCMA2_glibc26_2.zip -d ~/McMyAdmin/
-RUN rm MCMA2_glibc26_2.zip
-#RUN ~/McMyAdmin/MCMA2_Linux_x86_64 -setpass admin -configonly 
-#RUN ./root/McMyAdmin/MCMA2_Linux_x86_64
+RUN wget -q https://github.com/madtune/minercraft/raw/master/McMyAdmin.zip
+RUN unzip McMyAdmin.zip -d ~/
 
 
-
+RUN ~/MCMA2_Linux_x86_64 -setpass adminpass -configonly 
 
 VOLUME /data
 
@@ -38,4 +35,4 @@ EXPOSE 25565
 EXPOSE 8080
 
 #Automatically accept Minecraft EULA, and start Minecraft server
-#CMD echo eula=true > /data/eula.txt && java -jar /minecraft_server.1.9.jar
+CMD ~/MCMA2_Linux_x86_64
