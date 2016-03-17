@@ -26,7 +26,7 @@ RUN wget -q https://github.com/madtune/minercraft/raw/master/McMyAdmin.zip
 RUN unzip McMyAdmin.zip -d ~/
 
 
-RUN ~/MCMA2_Linux_x86_64 -setpass adminpass -configonly 
+RUN ~/McMyAdmin/MCMA2_Linux_x86_64 -setpass adminpass -configonly 
 
 VOLUME /data
 
@@ -35,4 +35,4 @@ EXPOSE 25565
 EXPOSE 8080
 
 #Automatically accept Minecraft EULA, and start Minecraft server
-CMD ~/MCMA2_Linux_x86_64
+CMD ~/McMyAdmin/MCMA2_Linux_x86_64
